@@ -26,7 +26,6 @@ void multi_calc(P * in, P * out, int from, int to, int height, int width) {
       out[i*width + j] = val;
     }
   }
-  printf("From %d to %d\n", from, to);
 }
 
 template<typename P>
