@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
   printf("-----------------------------------------------------\n");
   FILE * fp;
 
-   fp = fopen ("data.txt", "w+");
+  fp = fopen ("data.txt", "w+");
   P * out = img_out.pixel;
   for (int j = 1; j < img_in.width-1; j++) {
       for (int i = 1; i < img_in.height-1; i++) {

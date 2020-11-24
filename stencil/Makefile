@@ -1,6 +1,6 @@
 CXX=g++
 CXXFLAGS=-Iinclude/ -O1
-LDFLAGS=lib/libpng16.a lib/libz.a -no-pie -lpthread -g
+LDFLAGS=lib/libpng16.a lib/libz.a -no-pie -lpthread
 
 OBJECTS=src/main.o src/image.o src/stencil.o
 
@@ -13,4 +13,6 @@ run:	all
 	bin/stencil test-image.png
 
 clean:
-	rm -f $(OBJECTS) bin/stencil output.png src/*~ *~
+	rm -f $(OBJECTS) bin/stencil output.png src/*~ *~ data.txt
+
+
