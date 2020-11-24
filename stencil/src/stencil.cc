@@ -3,6 +3,48 @@
 
 const int THREAD_NUMBER = 8;
 std::thread threads[THREAD_NUMBER];
+/*
+template<typename P>
+void multi_calc(P * in, P * out, int from, int to, int height, int width) {
+  for (int ii = from; ii <= to; ii += BLOCK_SIZE) {
+    for (int jj = 1; jj < width-1; jj += BLOCK_SIZE) {
+      int iiMax = min(ii+BLOCK_SIZE-1, to);
+      int jjMax = min(jj+BLOCK_SIZE-1, width-2);
+      for (int i = ii; i <= iiMax; ++i) {
+        for (int j = jj; j <= jjMax; ++j) {
+          int im1jm1 =(i-1)*width + j-1;
+          int im1j   =(i-1)*width + j;
+          int im1jp1 =(i-1)*width + j+1;
+          int ijm1   =(i  )*width + j-1;
+          int ij     =(i  )*width + j;
+          int ijp1   =(i  )*width + j+1;
+          int ip1jm1 =(i+1)*width + j-1;
+          int ip1j   =(i+1)*width + j;
+          int ip1jp1 =(i+1)*width + j+1;
+          P val = 
+            -in[im1jm1] -   in[im1j] - in[im1jp1] 
+            -in[ijm1]   +   8*in[ij] - in[ijp1] 
+            -in[ip1jm1] -   in[ip1j] - in[ip1jp1];
+
+          or
+
+          P val = 0;
+          P * point = in + (i-1)*width + j-1;
+          val = val - *point; ++point; val = val - *point; ++point; val = val - *point; ++point;
+          P * point1 = in + i*width + j-1;
+          val = val - *point1; ++point1; val = val + 8 * (*point1); ++point1; val = val - *point1; ++point1;
+          P * point2 = in + (i+1)*width + j-1;
+          val = val - *point2; ++point2; val = val - *point2; ++point2; val = val - *point2; ++point2;
+
+          val = (val < 0   ? 0   : val);
+          val = (val > 255 ? 255 : val);
+          out[i*width + j] = val;
+        }
+      }
+    }
+  }
+}
+*/
 
 template<typename P>
 void multi_calc(P * in, P * out, int from, int to, int height, int width) {
